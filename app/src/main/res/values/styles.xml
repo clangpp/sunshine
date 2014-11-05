@@ -1,8 +1,66 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Sunshine</item>
+    </style>
+
+    <!-- ActionBar style -->
+    <style name="ActionBar.Solid.Sunshine" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/sunshine_blue</item>
+    </style>
+
+    <!-- Main activity theme -->
+    <style name="ForecastTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Sunshine.NoTitle</item>
+    </style>
+
+    <!-- Main activity action bar style -->
+    <style name="ActionBar.Solid.Sunshine.NoTitle" parent="@style/ActionBar.Solid.Sunshine">
+        <item name="android:displayOptions">useLogo|showHome</item>
+        <item name="android:logo">@drawable/ic_logo</item>
+    </style>
+
+    <style name="ForecastListStyle"></style>
+
+    <style name="DetailText">
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+        <item name="android:paddingTop">4dp</item>
+    </style>
+
+    <style name="DetailText.Light">
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+
+    <style name="DetailText.Condensed">
+        <item name="android:fontFamily">@string/font_condensed</item>
+    </style>
+
+    <style name="DetailBigTemperature">
+        <item name="android:textSize">96dp</item>
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+
+    <style name="DetailForecast">
+        <item name="android:fontFamily">@string/font_condensed</item>
+        <item name="android:textColor">@color/deep_gray</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="DetailSmallTemperature">
+        <item name="android:textSize">48dp</item>
+        <item name="android:fontFamily">@string/font_condensed</item>
+        <item name="android:textColor">@color/deep_gray</item>
+    </style>
+
+    <style name="ListItemLargeTextStyle">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+    </style>
+
+    <style name="ListItemSmallTextStyle">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
     </style>
 
 </resources>
