@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.clangpp.sunshine.data.WeatherContract;
 import com.clangpp.sunshine.data.WeatherContract.LocationEntry;
 import com.clangpp.sunshine.data.WeatherContract.WeatherEntry;
+import com.clangpp.sunshine.sync.SunshineSyncAdapter;
 
 import java.util.Date;
 
@@ -41,6 +42,9 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     public static final int COL_WEATHER_MIN_TEMP = 4;
     public static final int COL_LOCATION_SETTING = 5;
     public static final int COL_WEATHER_ID = 6;
+    public static final int COL_COORD_LAT = 7;
+    public static final int COL_COORD_LONG = 8;
+
     // For the forecast view we're showing only a small subset of the stored data.
     // Specify the columns we need.
     public static final String[] FORECAST_COLUMNS = {
@@ -56,8 +60,11 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
             WeatherEntry.COLUMN_MAX_TEMP,
             WeatherEntry.COLUMN_MIN_TEMP,
             LocationEntry.COLUMN_LOCATION_SETTING,
-            WeatherEntry.COLUMN_WEATHER_ID
+            WeatherEntry.COLUMN_WEATHER_ID,
+            LocationEntry.COLUMN_COORD_LAT,
+            LocationEntry.COLUMN_COORD_LONG
     };
+    public static final String LOCATION_KEY = "location";
     private static final String LOG_TAG = ForecastFragment.class.getSimpleName();
     private static final int FORECAST_LOADER = 0;
     private static final String POSITION_KEY = "position";
@@ -105,15 +112,33 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_refresh) {
-            String location = Utility.getPreferredLocation(getActivity());
-            new FetchWeatherTask(getActivity()).execute(location);
+//        if (item.getItemId() == R.id.action_refresh) {
+//            updateWeather();
+//            return true;
+//        }
+        if (item.getItemId() == R.id.action_map_location) {
+            openPreferredLocationInMap();
             return true;
         }
-        if (item.getItemId() == R.id.action_preferred_location) {
-            String location = Utility.getPreferredLocation(getActivity());
-            Uri locationUri = Uri.parse("geo:0,0").buildUpon().appendQueryParameter("q", location)
-                    .build();
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void updateWeather() {
+        SunshineSyncAdapter.initializeSyncAdapter(getActivity());
+    }
+
+    private void openPreferredLocationInMap() {
+        // Using the URI scheme for showing a location found on a map.  This super-handy
+        // intent can is detailed in the "Common Intents" page of Android's developer site:
+        // http://developer.android.com/guide/components/intents-common.html#Maps
+        if (forecastAdapter == null) {
+            return;
+        }
+        Cursor cursor = forecastAdapter.getCursor();
+        if (cursor != null && cursor.moveToFirst()) {
+            String latitude = cursor.getString(COL_COORD_LAT);
+            String longitude = cursor.getString(COL_COORD_LONG);
+            Uri locationUri = Uri.parse("geo:" + latitude + "," + longitude);
             Intent intent = new Intent(Intent.ACTION_VIEW, locationUri);
             if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                 startActivity(intent);
@@ -121,9 +146,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
                 String text = "No installed apps to handle geo request: " + locationUri.toString();
                 Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
             }
-            return true;
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

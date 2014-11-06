@@ -8,8 +8,8 @@ android {
         applicationId "com.clangpp.sunshine"
         minSdkVersion 19
         targetSdkVersion 20
-        versionCode 5
-        versionName "5.0"
+        versionCode 6
+        versionName "6.0"
     }
     buildTypes {
         release {
