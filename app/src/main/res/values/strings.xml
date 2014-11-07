@@ -25,36 +25,34 @@
     <string name="pref_notification_summary_off">Disabled</string>
     <string name="pref_notification_default" translatable="false">true</string>
 
-    <!-- Date label when displaying today's weather forecast [CHAR LIMIT=20] -->
-    <string name="today">Today</string>
+    <string name="today" description="Date label when displaying today's weather forecast [CHAR LIMIT=20]">Today</string>
+    <string name="tomorrow" description="Date label when displaying tomorrow's weather forecast [CHAR LIMIT=20]">Tomorrow</string>
 
-    <!-- Date label when displaying tomorrow's weather forecast [CHAR LIMIT=20] -->
-    <string name="tomorrow">Tomorrow</string>
-
-    <!-- Date format for displaying day of week and date (i.e. Mon Jun 1) [CHAR LIMIT=20] -->
-    <string name="format_full_friendly_date" translatable="false">
+    <string name="format_full_friendly_date" description="Date format for displaying day of week and date (i.e. Mon Jun 1) [CHAR LIMIT=20]" translatable="false">
         <xliff:g id="day_of_week">%1$s</xliff:g>, <xliff:g id="date">%2$s</xliff:g>
     </string>
 
 
     <!-- Strings for formatting weather-related data -->
-    <!-- Temperature format [CHAR LIMIT=5] -->
-    <string name="format_temperature" translatable="false"><xliff:g id="temp">%1.0f</xliff:g>\u00B0</string>
+    <string name="format_temperature" description="Temperature format [CHAR LIMIT=5]" translatable="false">
+        <xliff:g id="temp">%1.0f</xliff:g>\u00B0
+    </string>
 
     <!-- Windspeed formats -->
-    <!-- Wind in mph [CHAR LIMIT=25] -->
-    <string name="format_wind_mph">Wind: <xliff:g id="speed">%1$1.0f</xliff:g> mph <xliff:g id="direction">%2$s</xliff:g>
+    <string name="format_wind_mph" description="Wind in mph [CHAR LIMIT=25]">
+        Wind: <xliff:g id="speed">%1$1.0f</xliff:g> mph <xliff:g id="direction">%2$s</xliff:g>
+    </string>
+    <string name="format_wind_kmh" description="Wind in kph [CHAR LIMIT=25]">
+        Wind: <xliff:g id="speed">%1$1.0f</xliff:g> km/h <xliff:g id="direction">%2$s</xliff:g>
     </string>
 
-    <!-- Wind in kph [CHAR LIMIT=25] -->
-    <string name="format_wind_kmh">Wind: <xliff:g id="speed">%1$1.0f</xliff:g> km/h <xliff:g id="direction">%2$s</xliff:g>
+    <string name="format_pressure" description="Pressure format CHAR LIMIT=25]">
+        Pressure: <xliff:g id="pressure">%1.0f</xliff:g> hPa
     </string>
 
-    <!-- Pressure format CHAR LIMIT=25] -->
-    <string name="format_pressure">Pressure: <xliff:g id="pressure">%1.0f</xliff:g> hPa</string>
-
-    <!-- Humidity format CHAR LIMIT=25]-->
-    <string name="format_humidity">Humidity: <xliff:g id="humidity">%1.0f</xliff:g> %%</string>
+    <string name="format_humidity" description="Humidity format CHAR LIMIT=25]">
+        Humidity: <xliff:g id="humidity">%1.0f</xliff:g> %%
+    </string>
 
     <string name="font_light" translatable="false">sans-serif-light</string>
     <string name="font_condensed" translatable="false">sans-serif-condensed</string>
@@ -62,8 +60,7 @@
     <string name="sync_account_type" translatable="false">sunshine.clangpp.com</string>
     <string name="content_authority" translatable="false">com.clangpp.sunshine</string>
 
-    <!-- Notification Format -->
-<string name="format_notification">
+<string name="format_notification" description="Notification Format">
 Forecast: <xliff:g id="condition">%1$s</xliff:g> High: <xliff:g id="high">%2$s</xliff:g> Low: <xliff:g id="low">%3$s</xliff:g>
 </string>
 
