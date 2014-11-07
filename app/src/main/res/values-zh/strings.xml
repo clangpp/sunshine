@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+
+    <!--<string name="app_name">Sunshine</string>-->
+    <string name="action_settings">设置</string>
+    <string name="action_share">分享</string>
+    <string name="action_notification">通知栏消息</string>
+    <string name="action_map_location">在地图上显示</string>
+    <string name="title_activity_detail">详情</string>
+    <string name="title_activity_settings">设置</string>
+
+    <string name="pref_location_label">地点</string>
+    <string name="pref_units_label">温度单位</string>
+    <string name="pref_units_metric">公制</string>
+    <string name="pref_units_imperial">英制</string>
+
+    <string name="pref_notification_label">通知栏消息</string>
+    <string name="pref_notification_summary_on">开启</string>
+    <string name="pref_notification_summary_off">关闭</string>
+
+    <string name="today">今天</string>
+    <string name="tomorrow">明天</string>
+
+
+    <!-- Strings for formatting weather-related data -->
+
+    <!-- Windspeed formats -->
+    <!-- Wind in mph [CHAR LIMIT=25] -->
+    <string name="format_wind_mph">风速: <xliff:g id="speed">%1$1.0f</xliff:g> mph <xliff:g id="direction">%2$s</xliff:g>
+    </string>
+
+    <!-- Wind in kph [CHAR LIMIT=25] -->
+    <string name="format_wind_kmh">风速: <xliff:g id="speed">%1$1.0f</xliff:g> km/h <xliff:g id="direction">%2$s</xliff:g>
+    </string>
+
+    <!-- Pressure format CHAR LIMIT=25] -->
+    <string name="format_pressure">气压: <xliff:g id="pressure">%1.0f</xliff:g> hPa</string>
+
+    <!-- Humidity format CHAR LIMIT=25]-->
+    <string name="format_humidity">湿度: <xliff:g id="humidity">%1.0f</xliff:g> %%</string>
+
+    <!-- Notification Format -->
+<string name="format_notification">
+天气: <xliff:g id="condition">%1$s</xliff:g> 最高气温: <xliff:g id="high">%2$s</xliff:g> 最低气温: <xliff:g id="low">%3$s</xliff:g>
+</string>
+</resources>
